@@ -5,6 +5,7 @@ using UnityEngine;
 public class UserPlayer : MonoBehaviour
 {
     public SpriteRenderer UserPlayerSpriteRenderer;
+    public Ball Ball;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class UserPlayer : MonoBehaviour
         Vector3 moveAmount = new Vector3(xAmount, yAmount, 0f);
         // sprites will be added later
         UserPlayerSpriteRenderer.transform.Translate(moveAmount);
+        Ball.SwitchSides(direction);
         
         KeepOnScreen();
     }
