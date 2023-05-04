@@ -11,8 +11,5 @@ public static class GameParameters
     public static float SoccerCleatsMinimumTimeToCreate = 5f;
 
     public static float SoccerCleatsMaximumTimeToCreate = 5f;
-    
-    
-
 
 }

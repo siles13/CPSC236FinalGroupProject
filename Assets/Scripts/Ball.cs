@@ -18,9 +18,15 @@ public class Ball : MonoBehaviour
     {
         
     }
+
+    public void GetKicked()
+    {
+        print("kicked");
+    }
     
     public void SwitchSides(Vector2 direction)
     {
+        /*
         if (direction.x > 0)
         {
             // make ball face right side of userplayer
@@ -31,5 +37,6 @@ public class Ball : MonoBehaviour
             // make ball face last side of userplayer, currently not working
             BallSpriteRenderer.transform.position = new Vector3(-BallSpriteRenderer.transform.position.x, BallSpriteRenderer.transform.position.y, BallSpriteRenderer.transform.position.z);
         }
+        */
     }
 }

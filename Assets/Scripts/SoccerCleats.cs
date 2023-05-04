@@ -11,4 +11,3 @@ public class SoccerCleats : TimedLifespan
         base.Start();
     } 
 }
-}

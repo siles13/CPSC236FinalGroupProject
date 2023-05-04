@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class UserPlayer : MonoBehaviour
 {
     public SpriteRenderer UserPlayerSpriteRenderer;
     public Ball Ball;
+
+    private bool isTouchingBall;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,39 @@ public class UserPlayer : MonoBehaviour
         Ball.SwitchSides(direction);
         
         KeepOnScreen();
+    }
+    
+    public void OnCollisionStay(Collision collisionInfo)
+    {
+        if (collisionInfo.gameObject.tag == "Ball")
+        {
+            isTouchingBall = true;
+            print("touching");
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ball")
+        {
+            print("collide");
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Ball")
+        {
+            isTouchingBall = false;
+        }
+    }
+
+    public void KickBall()
+    {
+        if (isTouchingBall)
+        {
+            Ball.GetKicked();
+        }
     }
     
     private void KeepOnScreen()
