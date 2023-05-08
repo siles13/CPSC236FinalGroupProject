@@ -32,8 +32,7 @@ public class UserPlayer : MonoBehaviour
         Vector3 moveAmount = new Vector3(xAmount, yAmount, 0f);
         // sprites will be added later
         UserPlayerSpriteRenderer.transform.Translate(moveAmount);
-        Ball.SwitchSides(direction);
-        
+
         KeepOnScreen();
     }
     

@@ -5,18 +5,15 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public SpriteRenderer BallSpriteRenderer;
+    private Rigidbody physics;
+    private float startSpeed = 300;
+    private bool canLaunch = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public SpriteRenderer BallSpriteRenderer;
     
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        physics = gameObject.GetComponent<Rigidbody>();
     }
 
     public void GetKicked()
@@ -24,19 +21,35 @@ public class Ball : MonoBehaviour
         print("kicked");
     }
     
-    public void SwitchSides(Vector2 direction)
+    
+    private void Launch()
     {
-        /*
-        if (direction.x > 0)
+        physics.isKinematic = false;
+        physics.AddForce(new Vector3(startSpeed, startSpeed, 0f));
+    }
+    
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            // make ball face right side of userplayer
-            //BallSpriteRenderer.transform.position = new Vector3(UserPlayerPosition.x, UserPlayerPosition.y, UserPlayerPosition.z);
+            canLaunch = true;
         }
-        else if (direction.x < 0)
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            // make ball face last side of userplayer, currently not working
-            BallSpriteRenderer.transform.position = new Vector3(-BallSpriteRenderer.transform.position.x, BallSpriteRenderer.transform.position.y, BallSpriteRenderer.transform.position.z);
+            canLaunch = false;
         }
-        */
+    }
+
+    void Update()
+    {
+        if (canLaunch && Input.GetButtonDown("Jump"))
+        {
+            Launch();
+            canLaunch = false;
+        }
     }
 }
