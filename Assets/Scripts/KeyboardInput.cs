@@ -26,8 +26,6 @@ public class KeyboardInput : MonoBehaviour
     
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                // input to kick ball, adding later
-                //PoopPlacer.Place(Corgi.transform.position);
                 UserPlayer.KickBall();
             }
         }

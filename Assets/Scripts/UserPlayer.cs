@@ -36,12 +36,11 @@ public class UserPlayer : MonoBehaviour
         KeepOnScreen();
     }
     
-    public void OnCollisionStay(Collision collisionInfo)
+    public void OnCollisionStay2D(Collision2D collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "Ball")
         {
             isTouchingBall = true;
-            print("touching");
         }
     }
 
@@ -49,7 +48,6 @@ public class UserPlayer : MonoBehaviour
     {
         if (col.gameObject.tag == "Ball")
         {
-            print("collide");
         }
     }
 
@@ -65,7 +63,7 @@ public class UserPlayer : MonoBehaviour
     {
         if (isTouchingBall)
         {
-            Ball.GetKicked();
+            Ball.GetKicked(transform.position);
         }
     }
     
