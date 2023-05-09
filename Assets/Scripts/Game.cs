@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-
+    public GameTimer GameTimer;
     private bool isRunning = false;
     
     public void StartGame()
     {
         isRunning = true;
+        
+        GameTimer.StartTimer(120);
+        
+        //Player.StartGame();
+    }
+    
+    public bool HasGameJustEnded()
+    {
+        if (isRunning && !GameTimer.IsRunning())
+            return true;
+        return false;
     }
     
     
