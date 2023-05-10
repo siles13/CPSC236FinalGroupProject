@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
     private bool isRunning = false;
     public Sounds Sounds;
     public UserPlayer UserPlayer;
+    public OpponentPlayer OpponentPlayer;
 
     public void StartGame()
     {
@@ -17,6 +18,9 @@ public class Game : MonoBehaviour
         GameTimer.StartTimer(120);
         
         UserPlayer.StartGame();
+        
+        OpponentPlayer.StartGame();
+        
         Sounds.PlayCrowdNoise();
     }
     

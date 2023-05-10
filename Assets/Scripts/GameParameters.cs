@@ -6,6 +6,8 @@ public static class GameParameters
 {
     public static float UserPlayerMoveAmount = 0.02f;
 
+    public static float OpponentPlayerMoveAmount = 0.02f;
+
     public static float SoccerCleatsSecondsOnScreen = 5f;
     
     public static float SoccerCleatsMinimumTimeToCreate = 5f;

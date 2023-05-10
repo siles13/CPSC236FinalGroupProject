@@ -12,7 +12,6 @@ public class UserPlayer : MonoBehaviour
     private bool isTouchingBall;
     private bool isPlaying = false;
     
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -51,13 +50,6 @@ public class UserPlayer : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Ball")
-        {
-        }
-    }
-
     public void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.tag == "Ball")
@@ -76,7 +68,7 @@ public class UserPlayer : MonoBehaviour
     
     private void KeepOnScreen()
     {
-        //CorgiSpriteRenderer.transform.position = SpriteTools.ConstrainToScreen(CorgiSpriteRenderer);
+        // UserPlayerSpriteRenderer.transform.position = SpriteTools.ConstrainToScreen(UserPlayerSpriteRenderer);
     }
     
     public void FaceCorrectDirection(Vector2 direction)
