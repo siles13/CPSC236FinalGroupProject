@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,7 +8,6 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody2D physics;
     private float startSpeed = 300;
-    private bool canLaunch = false;
 
     public SpriteRenderer BallSpriteRenderer;
     
@@ -24,25 +24,24 @@ public class Ball : MonoBehaviour
 
         if (xDifference > 0)
             xMultiplier = -1f;
-        print("xdiff = " + xDifference);
-        
+
         physics.isKinematic = false;
         physics.AddForce(new Vector3(startSpeed * xMultiplier, startSpeed * yDifference, 0f));
     }
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "LeftGoal")
         {
-            canLaunch = true;
+            print("score");
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (other.gameObject.tag == "Player")
+        if (col.gameObject.tag == "LeftGoal")
         {
-            canLaunch = false;
+            print("score");
         }
     }
 
