@@ -7,7 +7,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     private Rigidbody2D physics;
-    private float startSpeed = 300;
+    private float startSpeed = 600;
 
     public SpriteRenderer BallSpriteRenderer;
     
