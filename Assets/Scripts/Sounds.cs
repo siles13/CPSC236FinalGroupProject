@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Sounds : MonoBehaviour
 {
-    public AudioSource AudioSource;
+    public AudioSource KickBall;
+    public AudioSource CrowdNoise;
     public AudioClip KickBallClip;
     public AudioClip CrowdNoiseClip;
     // Start is called before the first frame update
@@ -21,13 +22,13 @@ public class Sounds : MonoBehaviour
 
     public void PlayKickBallSound()
     {
-        AudioSource.clip = KickBallClip;
-        AudioSource.Play();
+        KickBall.clip = KickBallClip;
+        KickBall.Play();
     }
 
     public void PlayCrowdNoise()
     {
-        AudioSource.clip = CrowdNoiseClip;
-        AudioSource.Play();
+        CrowdNoise.clip = CrowdNoiseClip;
+        CrowdNoise.Play();
     }
 }
