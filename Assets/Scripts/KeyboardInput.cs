@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyboardInput : MonoBehaviour
 {
     public UserPlayer UserPlayer;
+    public Sounds Sounds;
     void Update()
         {
             if (Input.GetKey(KeyCode.W))
@@ -27,6 +28,7 @@ public class KeyboardInput : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 UserPlayer.KickBall();
+                Sounds.PlayKickBallSound();
             }
         }
 }

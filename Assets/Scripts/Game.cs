@@ -6,6 +6,8 @@ public class Game : MonoBehaviour
 {
     public GameTimer GameTimer;
     private bool isRunning = false;
+    public Sounds Sounds;
+    public UserPlayer UserPlayer;
     
     public void StartGame()
     {
@@ -13,7 +15,8 @@ public class Game : MonoBehaviour
         
         GameTimer.StartTimer(120);
         
-        //Player.StartGame();
+        UserPlayer.StartGame();
+        Sounds.PlayCrowdNoise();
     }
     
     public bool HasGameJustEnded()
@@ -27,6 +30,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartGame();
     }
 
     // Update is called once per frame

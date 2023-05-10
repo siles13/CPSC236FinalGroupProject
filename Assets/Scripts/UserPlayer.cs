@@ -7,13 +7,20 @@ public class UserPlayer : MonoBehaviour
 {
     public SpriteRenderer UserPlayerSpriteRenderer;
     public Ball Ball;
+    public Game Game;
 
     private bool isTouchingBall;
+    private bool isPlaying = false;
     
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+    
+    public void StartGame()
+    {
+        isPlaying = true;
     }
 
     public void MoveManually(Vector2 direction)
